@@ -5,13 +5,13 @@
 @endsection
 @section("main")
     <p>Descripción de nuestros servicios.</p>
-    <x-card title="Servicio 1">
+    <x-card class="texto-centrado" title="Servicio 1">
         Descripción breve del servicio 1.
     </x-card>
-    <x-card title="Servicio 2">
+    <x-card class="texto-centrado" title="Servicio 2">
         Descripción breve del servicio 2.
     </x-card>
-    <x-card title="Servicio 3">
+    <x-card class="texto-centrado" title="Servicio 3">
         Descripción breve del servicio 3.
     </x-card>
 @endsection
