@@ -5,16 +5,13 @@
 @endsection
 @section("main")
     <p>Descripción de nuestros servicios.</p>
-    @component("components.card")
-        @slot("title", "Servicio 1")
-        @slot("content", "Descripción del servicio 1")
-    @endcomponent
-    @component("components.card")
-        @slot("title", "Servicio 2")
-        @slot("content", "Descripción del servicio 2")
-    @endcomponent
-    @component("components.card")
-        @slot("title", "Servicio 3")
-        @slot("content", "Descripción del servicio 3")
-    @endcomponent
+    <x-card title="Servicio 1">
+        Descripción breve del servicio 1.
+    </x-card>
+    <x-card title="Servicio 2">
+        Descripción breve del servicio 2.
+    </x-card>
+    <x-card title="Servicio 3">
+        Descripción breve del servicio 3.
+    </x-card>
 @endsection
