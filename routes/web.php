@@ -4,15 +4,19 @@ use Illuminate\Support\Facades\Route;
 use Carbon\Carbon;
 use App\Models\Note;
 use App\Models\Employee;
+use App\Http\Controllers\UserController;
 
 // Route::get('/', function () {
 //     return view('welcome');
 // });
 
-Route::view("/", "landing.index")->name("home");
+// Route::view("/", "landing.index")->name("home");
 Route::view("/about", "landing.about")->name("about");
 Route::view("/contact", "landing.contact")->name("contact");
 Route::view("/services", "landing.services")->name("services");
+
+Route::get("/", [UserController::class, "index"])->name("user.index");
+Route::get("/crear-usuario", [UserController::class, "create"])->name("user.create");
 
 Route::get("/crear-nota", function () {
     $note = new Note();

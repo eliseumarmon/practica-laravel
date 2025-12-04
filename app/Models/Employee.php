@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property integer $emp_id
  * @property string $emp_firstname
  * @property string $emp_lastname
- * @property DateTime $emp_birth_date
+ * @property \Carbon\Carbon $emp_birth_date
  * @property \Carbon\Carbon $emp_hire_date
  * @property float $salary
  */
