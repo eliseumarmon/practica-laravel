@@ -5,18 +5,22 @@ use Carbon\Carbon;
 use App\Models\Note;
 use App\Models\Employee;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ProductController;
 
 // Route::get('/', function () {
 //     return view('welcome');
 // });
 
-// Route::view("/", "landing.index")->name("home");
+Route::view("/", "landing.index")->name("home");
 Route::view("/about", "landing.about")->name("about");
 Route::view("/contact", "landing.contact")->name("contact");
 Route::view("/services", "landing.services")->name("services");
 
-Route::get("/", [UserController::class, "index"])->name("user.index");
+Route::get("/usuarios", [UserController::class, "index"])->name("user.index");
 Route::get("/crear-usuario", [UserController::class, "create"])->name("user.create");
+
+Route::get("/productos", [ProductController::class, "index"])->name("products.index");
+Route::get("/crear-producto", [ProductController::class, "create"])->name("products.create");
 
 Route::get("/crear-nota", function () {
     $note = new Note();
