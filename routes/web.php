@@ -1,7 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Carbon\Carbon;
 use App\Models\Note;
+use App\Models\Employee;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -28,4 +30,16 @@ Route::get("/borrar-nota/{id}", function ($id) {
         return "Nota eliminada";
     }
     return "Nota no encontrada";
+});
+
+Route::get("/crear-empleado", function () {
+    $employee = new Employee();
+    $employee->emp_id = 1;
+    $employee->emp_firstname = "Eliseu";
+    $employee->emp_lastname = "Martinez";
+    $employee->emp_birth_date = Carbon::parse("1991-12-15");
+    $employee->emp_hire_date = Carbon::parse("2020-08-06");
+    $employee->salary = 2000;
+    $employee->save();
+    return $employee;
 });
