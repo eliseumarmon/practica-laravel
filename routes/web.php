@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Models\Note;
+
 // Route::get('/', function () {
 //     return view('welcome');
 // });
@@ -17,7 +18,7 @@ Route::get("/crear-nota", function () {
     $note->description = "Descripción de la nota";
     $note->done = false;
     $note->save();
-    return "Nota creada.";
+    return $note;
 });
 
 Route::get("/borrar-nota/{id}", function ($id) {
