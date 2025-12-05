@@ -18,6 +18,9 @@ class Employee extends Model
     public $incrementing = false;
     protected $keyType = 'int';
     protected $fillable = ['emp_id', 'emp_firstname', 'emp_lastname', 'emp_birth_date', 'emp_hire_date', 'salary'];
-    protected $dates = ['emp_birth_date', 'emp_hire_date'];
+    protected $casts = [
+        'emp_birth_date' => 'datetime',
+        'emp_hire_date' => 'datetime',
+    ];
     protected $hidden = ['created_at', 'updated_at'];
 }
