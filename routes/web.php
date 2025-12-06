@@ -27,8 +27,13 @@ Route::get('/crear-usuario', [UserController::class, 'create'])->name('user.crea
 
 // Proyecto Productos
 
-Route::get('/productos', [ProductController::class, 'index'])->name('products.index');
-Route::get('/crear-producto', [ProductController::class, 'create'])->name('products.create');
+Route::get('/productos', [ProductController::class, 'index'])->name('product.index');
+Route::get('/producto/crear', [ProductController::class, 'create'])->name('product.create');
+Route::post('/productos', [ProductController::class, 'store'])->name('product.store');
+Route::get('/producto/{producto}', [ProductController::class, 'show'])->name('product.show');
+Route::get("/producto/edit/{producto}", [ProductController::class, "edit"])->name("product.edit");
+Route::put("/producto/{producto}", [ProductController::class, "update"])->name("product.update");
+Route::delete("/producto/{producto}", [ProductController::class, "destroy"])->name("product.delete");
 
 // Proyecto Empleados
 
@@ -52,12 +57,10 @@ Route::get('/crear-empleado', function () {
 // Proyecto Notas
 
 Route::get('/notes', [NoteController::class, 'index'])->name('note.index');
-Route::get("/note/create", [NoteController::class, "create"])->name("note.create");
+Route::get('/note/create', [NoteController::class, 'create'])->name('note.create');
 Route::post('/note/store', [NoteController::class, 'store'])->name('note.store');
-    
-Route::get("/note/edit/{note}", [NoteController::class, "edit"])->name("note.edit");
+
+Route::get('/note/edit/{note}', [NoteController::class, 'edit'])->name('note.edit');
 Route::put('/note/update/{note}', [NoteController::class, 'update'])->name('note.update');
-
-Route::get("/note/show/{id}", [NoteController::class, "show"])->name("note.show"); // ejemplo usando $id
+Route::get('/note/show/{id}', [NoteController::class, 'show'])->name('note.show'); // ejemplo usando $id
 Route::delete('/note/destroy/{note}', [NoteController::class, 'destroy'])->name('note.destroy');
-

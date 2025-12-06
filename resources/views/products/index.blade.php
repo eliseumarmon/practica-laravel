@@ -1,21 +1,16 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Productos</title>
-</head>
-<body>
-    <h1>Lista de productos</h1>
+@extends("_layouts.products")
+@section("title", "Productos")
+@section("header_title")
+    <h1>Productos</h1>
+@endsection
+@section("main")
     @if ($productos->isEmpty())
         <p>No hay productos disponibles.</p>
     @else
         <ul>
             @foreach ($productos as $product)
-                <li>{{ $loop->iteration }}. {{ $product->name }} - {{ $product->description }} - {{ $product->price }} - {{ $product->stock }}.</li>
+                <li><x-products.product title="{{ $product->name }}" description="{{ $product->description }}" id="{{ $product->id }}"/></li>
             @endforeach
         </ul>
     @endif
-</body>
-</html>
+@endsection

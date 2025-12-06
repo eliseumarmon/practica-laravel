@@ -11,27 +11,27 @@ class ProductController extends Controller
         return view("products.index", compact("productos"));
     }
     public function create() {
-        Product::create([
-            "name" => "GBA",
-            "description" => "Consola portátil retro.",
-            "price" => "50.25",
-            "stock" => 5
-        ]);
+        return view("products.create");
+    }
+    public function store(Request $request) {
+        Product::create($request->all());
+        return redirect()->route("product.index");
+    }
+    public function show(Product $producto) {
+        return view("products.show", compact("producto"));
+    }
 
-        Product::create([
-            "name" => "PS5",
-            "description" => "Consola sobremesa actual.",
-            "price" => "399.99",
-            "stock" => 27
-        ]);
+    public function edit(Product $producto) {
+        return view("products.edit", compact("producto"));
+    }
 
-        Product::create([
-            "name" => "Steam Box",
-            "description" => "PC gamer con SO linux",
-            "price" => "699.99",
-            "stock" => 0
-        ]);
+    public function update(Request $request, Product $producto) {
+        $producto->update($request->all());
+        return redirect()->route("product.index");
+    }
 
-        return redirect()->route("products.index");
+    public function destroy(Product $producto){
+        $producto->delete();
+        return redirect()->route("product.index");
     }
 }
